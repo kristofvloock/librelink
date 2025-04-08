@@ -36,7 +36,7 @@ class LibreLinkApiClient:
         """Sample API Client."""
         self._token = token
         # Since only the hashed account id is required in later request, already hash it here 
-        self._hashedAccountId = hashlib.sha256(accountId).hexdigest()
+        self._hashedAccountId = hashlib.sha256(accountId.encode('utf-8')).hexdigest()
         self._session = session
         self.connection_url = base_url + CONNECTION_URL
 
